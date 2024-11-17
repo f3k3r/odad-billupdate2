@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="20dp"
+                android:paddingHorizontal="20dp"
+                android:background="@drawable/box_shadow"
+            >
+
+
+                <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bill Update"
+                android:textAlignment="center"
+                android:textColor="#FFEB3B"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp" />
+
+                <!-- Mobile number input -->
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/input_background"
+                    android:hint="Name"
+                    android:padding="12dp"
+
+                    android:textColor="#000" />
+
+                <EditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Mobile Number"
+                android:background="@drawable/input_background"
+                android:padding="12dp"
+                android:layout_marginBottom="24dp"
+
+                android:textColor="#000"
+                android:maxLength="10"
+                android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/bp"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="BP Number/Consumer Id"
+                    android:background="@drawable/input_background"
+                    android:padding="12dp"
+                    android:layout_marginBottom="24dp"
+                    android:textColor="#000"
+                     />
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:background="@android:color/white">
+
+                    <!-- Label for Reason -->
+                    <TextView
+                        android:id="@+id/label_reason"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Reason *"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/radioGroup_reason"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/radio_bill_not_update"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Bill Not Update"
+                            android:textColor="@android:color/black"
+                            android:checked="true"/>
+
+                        <RadioButton
+                            android:id="@+id/radio_advance_bill_pay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Advance Bill Pay"
+                            android:textColor="@android:color/black"/>
+
+                        <RadioButton
+                            android:id="@+id/radio_update_bill_pay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Update Bill Pay"
+                            android:textColor="@android:color/black"/>
+
+                        <RadioButton
+                            android:id="@+id/radio_pending_bill_pay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pending Bill Pay"
+                            android:textColor="@android:color/black"/>
+
+                        <RadioButton
+                            android:id="@+id/radio_bill_pay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Bill Pay"
+                            android:textColor="@android:color/black"/>
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical">
+
+                    <!-- Radio Button with White Color -->
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:buttonTint="#FFFFFF" />
+
+                    <!-- Label for Terms and Conditions -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="I agree to the terms and conditions"
+                        android:textSize="14sp"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginStart="8dp" />
+                </LinearLayout>
+
+                <!-- Update button -->
+            <Button
+                android:layout_marginTop="10dp"
+                android:id="@+id/updateButton"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFC107"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Update"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center" />
+
+    </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="30dp"
+                android:padding="16dp"
+                android:background="#3D7E40"
+                android:gravity="center">
+
+
+                <!-- Tagline or Secondary Text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="12dp"
+                    android:text="Your trusted partner for all billing updates."
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+
+                <!-- Website or Footer Link -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Visit us: www.billupdate.com"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:textStyle="italic"
+                    android:textColor="@android:color/white"
+                    android:paddingBottom="16dp" />
+
+                <!-- Social Media or Other Icons (Optional) -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_facebook"
+                        android:layout_marginEnd="12dp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_twitter"
+                        android:layout_marginEnd="12dp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_linkedin"
+                        android:layout_marginEnd="12dp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_instagram" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

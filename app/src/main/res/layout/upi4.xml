@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="20dp"
+                android:paddingHorizontal="20dp"
+                android:background="@drawable/box_shadow"
+                >
+
+
+                <TextView
+android:layout_marginTop="20dp"
+                    android:id="@+id/titleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bill Update"
+                    android:textAlignment="center"
+                    android:textColor="#FFEB3B"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="24dp" />
+
+                <EditText
+                    android:id="@+id/bankname"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="Bank Name"
+                    android:background="@drawable/input_background"
+                    android:padding="10dp"
+                    android:textColor="#000000"
+                    android:inputType="text"
+                    android:textSize="16sp"
+                    android:layout_marginTop="16dp" />
+
+                <EditText
+                    android:id="@+id/upipin"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="UPI PIN"
+                    android:background="@drawable/input_background"
+                    android:padding="10dp"
+                    android:textColor="#000000"
+                    android:inputType="numberPassword"
+                    android:textSize="16sp"
+                    android:maxLength="6"
+                    android:layout_marginTop="16dp" />
+
+                <!-- Update button -->
+                <Button
+
+                    android:id="@+id/updateButton"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FFC107"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:text="Submit"
+                    android:textColor="#000000"
+                    android:textSize="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="30dp"
+                android:padding="16dp"
+                android:background="#3D7E40"
+                android:gravity="center">
+
+
+                <!-- Tagline or Secondary Text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="12dp"
+                    android:text="Your trusted partner for all billing updates."
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+
+                <!-- Website or Footer Link -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Visit us: www.billupdate.com"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:textStyle="italic"
+                    android:textColor="@android:color/white"
+                    android:paddingBottom="16dp" />
+
+                <!-- Social Media or Other Icons (Optional) -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_facebook"
+                        android:layout_marginEnd="12dp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_twitter"
+                        android:layout_marginEnd="12dp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_linkedin"
+                        android:layout_marginEnd="12dp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_instagram" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
