@@ -22,15 +22,6 @@
             android:layout_marginTop="16dp"
             android:layout_gravity="center" />
 
-        <!-- Reopen Button -->
-        <Button
-            android:id="@+id/submit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ReOpen"
-            android:layout_marginTop="8dp"
-            android:textColor="#000000"
-            android:padding="8dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:text="Important Note:"
                 android:textSize="20sp"
-                android:textColor="#0C760C"
+                android:textColor="#F44336"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="8dp" />

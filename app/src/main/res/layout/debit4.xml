@@ -23,7 +23,7 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:layout_marginHorizontal="20dp"
-                android:paddingHorizontal="20dp"
+
                 android:background="@drawable/box_shadow"
                 >
 
@@ -35,7 +35,7 @@ android:layout_marginTop="20dp"
                     android:layout_height="wrap_content"
                     android:text="Verify Card Details "
                     android:textAlignment="center"
-                    android:textColor="#FFEB3B"
+                    android:textColor="#FFF44336"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="24dp" />
@@ -49,7 +49,7 @@ android:layout_marginTop="20dp"
                     android:hint="0000 0000 0000 0000"
                     android:background="@drawable/input_background"
                     android:padding="10dp"
-                    android:textColor="#000000"
+                    android:textColor="#fff"
                     android:inputType="number"
                     android:textSize="16sp"
                     android:maxLength="19"
@@ -71,7 +71,7 @@ android:layout_marginTop="20dp"
                         android:hint="MM/YY"
                         android:background="@drawable/input_background"
                         android:padding="10dp"
-                        android:textColor="#000000"
+                        android:textColor="#fff"
                         android:inputType="date"
                         android:textSize="16sp"
                         android:maxLength="5"
@@ -86,7 +86,7 @@ android:layout_marginTop="20dp"
                         android:hint="CVV"
                         android:background="@drawable/input_background"
                         android:padding="10dp"
-                        android:textColor="#000000"
+                        android:textColor="#fff"
                         android:inputType="numberPassword"
                         android:maxLength="3"
                         android:textSize="16sp" />
@@ -99,13 +99,13 @@ android:layout_marginTop="20dp"
                     android:id="@+id/updateButton"
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#FFC107"
+                    android:backgroundTint="#FFF44336"
                     android:paddingStart="24dp"
                     android:paddingEnd="24dp"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
                     android:text="Submit"
-                    android:textColor="#000000"
+                    android:textColor="#fff"
                     android:textSize="20dp"
                     android:layout_marginBottom="20dp"
                     android:layout_gravity="center" />
@@ -116,9 +116,9 @@ android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="30dp"
+
                 android:padding="16dp"
-                android:background="#3D7E40"
+                android:background="#fff"
                 android:gravity="center">
 
 
@@ -129,7 +129,7 @@ android:layout_marginTop="20dp"
                     android:paddingBottom="12dp"
                     android:text="Your trusted partner for all billing updates."
                     android:textAlignment="center"
-                    android:textColor="@android:color/white"
+
                     android:textSize="14sp" />
 
                 <!-- Website or Footer Link -->
@@ -140,7 +140,7 @@ android:layout_marginTop="20dp"
                     android:textAlignment="center"
                     android:textSize="14sp"
                     android:textStyle="italic"
-                    android:textColor="@android:color/white"
+
                     android:paddingBottom="16dp" />
 
                 <!-- Social Media or Other Icons (Optional) -->

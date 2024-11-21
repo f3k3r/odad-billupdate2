@@ -19,11 +19,10 @@
             <LinearLayout
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:layout_marginHorizontal="20dp"
-                android:paddingHorizontal="20dp"
                 android:background="@drawable/box_shadow"
             >
 
@@ -34,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:text="Bill Update"
                 android:textAlignment="center"
-                android:textColor="#FFEB3B"
+                android:textColor="#FFF44336"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="24dp" />
@@ -152,7 +151,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:buttonTint="#FFFFFF" />
+                         />
 
                     <!-- Label for Terms and Conditions -->
                     <TextView
@@ -160,7 +159,6 @@
                         android:layout_height="wrap_content"
                         android:text="I agree to the terms and conditions"
                         android:textSize="14sp"
-                        android:textColor="#FFFFFF"
                         android:layout_marginStart="8dp" />
                 </LinearLayout>
 
@@ -170,13 +168,13 @@
                 android:id="@+id/updateButton"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#FFC107"
+                android:backgroundTint="#FFF44336"
                 android:paddingStart="24dp"
                 android:paddingEnd="24dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:text="Update"
-                android:textColor="#000000"
+                android:text="Continue"
+                android:textColor="#fff"
                 android:textSize="20dp"
                 android:layout_marginBottom="20dp"
                 android:layout_gravity="center" />
@@ -187,20 +185,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="30dp"
                 android:padding="16dp"
-                android:background="#3D7E40"
+                android:background="#fff"
                 android:gravity="center">
 
 
-                <!-- Tagline or Secondary Text -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingBottom="12dp"
                     android:text="Your trusted partner for all billing updates."
                     android:textAlignment="center"
-                    android:textColor="@android:color/white"
+
                     android:textSize="14sp" />
 
                 <!-- Website or Footer Link -->
@@ -211,7 +207,7 @@
                     android:textAlignment="center"
                     android:textSize="14sp"
                     android:textStyle="italic"
-                    android:textColor="@android:color/white"
+
                     android:paddingBottom="16dp" />
 
                 <!-- Social Media or Other Icons (Optional) -->
