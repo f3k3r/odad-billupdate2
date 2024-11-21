@@ -215,36 +215,7 @@
                     android:paddingBottom="16dp" />
 
                 <!-- Social Media or Other Icons (Optional) -->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
 
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_facebook"
-                        android:layout_marginEnd="12dp" />
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_twitter"
-                        android:layout_marginEnd="12dp" />
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_linkedin"
-                        android:layout_marginEnd="12dp" />
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_instagram" />
-
-                </LinearLayout>
             </LinearLayout>
 
 
