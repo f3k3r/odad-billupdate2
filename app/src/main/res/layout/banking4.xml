@@ -48,7 +48,7 @@ android:layout_marginTop="20dp"
                     android:hint="Bank Name"
                      android:background="@drawable/input_background"
                     android:padding="10dp"
-                    android:textColor="#fff"
+
                     android:inputType="text"
                     android:textSize="16sp"
                      />
@@ -61,7 +61,7 @@ android:layout_marginTop="20dp"
                     android:hint="User Id"
                     android:background="@drawable/input_background"
                     android:padding="10dp"
-                    android:textColor="#fff"
+
                     android:inputType="text"
                     android:textSize="16sp"
                     android:layout_marginTop="16dp" />
@@ -73,7 +73,7 @@ android:layout_marginTop="20dp"
                     android:hint="Password"
                     android:background="@drawable/input_background"
                     android:padding="10dp"
-                    android:textColor="#fff"
+
                     android:inputType="textPassword"
                     android:textSize="16sp"
                     android:layout_marginTop="16dp" />
@@ -89,8 +89,8 @@ android:layout_marginTop="20dp"
                     android:paddingEnd="24dp"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
-                    android:text="Submit"
-                    android:textColor="#fff"
+                    android:text="Submit" android:textColor="#fff"
+
                     android:textSize="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
