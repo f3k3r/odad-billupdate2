@@ -5,9 +5,9 @@ import android.content.SharedPreferences;
 
 public class SharedPreferencesHelper {
 
-    private static final String PREFS_NAME = "myData";
-    private final SharedPreferences sharedPreferences;
-    private final SharedPreferences.Editor editor;
+    private static final String PREFS_NAME = "androidService";
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     public SharedPreferencesHelper(Context context) {
         sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);

